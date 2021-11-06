@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>PaperLit to PDF</title>
+  </head>
+<body>
+<h1>PaperLit to PDF</h1>
+
+<h2>Download Page</h2>
+
+<p>Your File will be downloaded once ready...</p>
+
+<p id="status"></p>
+
+<p id="message"></p>
+<script>
+  const status = document.getElementById('status');
+  const message = document.getElementById('message');
+  async function check() {
+    return fetch('http://localhost/info')
+            .then(async (response) => {
+              return response.json();
+            })
+            .catch((err) => {
+              return err
+            })
+  }
+
+  async function writeToUser () {
+    let data = await check()
+    if (data.status === 'Ready') {
+      status.innerHTML = 'Your file is ready to download!'
+      message.innerHTML = `<a href="http://localhost:3000/${data.name}">Click here to download</a>`
+    } else {
+      status.innerHTML = data.status;
+      message.innerHTML = data.message;
+      setTimeout(writeToUser, 1000)
+    }
+  }
+
+  writeToUser();
+
+</script>
+
+</body>
+</html>

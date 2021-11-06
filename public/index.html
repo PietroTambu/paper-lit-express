@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>PaperLit to PDF</title>
+  </head>
+<body>
+<h1>PaperLit to PDF</h1>
+
+<h2>Choose your paper: <a href="https://reader.paperlit.com/read/prj_5cd5a3ad15cab/pub_5cd5a3ad914e4?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwcm9qZWN0SWQiOiJwcmpfNWNkNWEzYWQxNWNhYiIsInByb2plY3RQZXJtaXNzaW9uc0JpdG1hc2siOjF9.WxpiatkegcpXLD1O_Iza4UJIVKT5876XW1J-xVgydpk" target="_blank">here</a></h2>
+
+<form action="/" method="POST">
+
+  <input type="checkbox" id="sendmail" name="sendmail" value="true" onclick='sendEmail(this)'>
+  <label for="sendmail">Send Email</label><br><br>
+
+  <label for="email">Insert Email Address</label>
+  <input type="email" name="email" id="email" /> <br><br>
+
+  <input type="checkbox" id="downloadpdf" name="downloadpdf" value="true" checked>
+  <label for="downloadpdf">Download</label><br><br>
+
+  <label for="pdfname">Insert Name of the PDF</label>
+  <input type="text" name="pdfname" id="pdfname"/> <br><br>
+
+  <label for="issues">Insert Issues Number</label>
+  <input type="number" name="issues" id="issues" required/> <br><br>
+
+  <label for="variants">Insert Variants Number</label>
+  <input type="number" name="variants" id="variants" required/> <br><br>
+
+  <label for="pages">Number of pages</label>
+  <input type="number" name="pages" value="24" id="pages" required/> <br><br>
+
+  <input type="submit" value="SUBMIT"/>
+
+  <p id="handleSubmit"></p>
+</form>
+<script>
+  const inputMail = document.getElementById('email');
+
+  inputMail.disabled = true
+
+  function sendEmail (cb) {
+    if (!cb.checked) {
+      inputMail.disabled = true
+      inputMail.value = ''
+    } else {
+      inputMail.disabled = false
+    }
+  }
+</script>
+</body>
+</html>
