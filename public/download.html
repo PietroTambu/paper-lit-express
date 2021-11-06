@@ -39,7 +39,6 @@
 
   async function writeToUser () {
     let data = await check()
-    console.log(data)
     if (data.status === 'Ready') {
       status.innerHTML = 'Your file is ready to download!'
       message.innerHTML = `If the download has not started: <a href="http://192.168.1.29:3000/download/${data.name}">click here</a>`
