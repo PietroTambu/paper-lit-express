@@ -17,6 +17,7 @@
 <p id="status"></p>
 
 <p id="message"></p>
+<iframe id="for-download" style=" display: none;"></iframe>
 <script>
   const status = document.getElementById('status');
   const message = document.getElementById('message');
@@ -36,6 +37,7 @@
     if (data.status === 'Ready') {
       status.innerHTML = 'Your file is ready to download!'
       message.innerHTML = `<a href="http://192.168.1.29:3000/download/${data.name}">Click here to download</a>`
+      document.getElementById('for-download').src = `http://192.168.1.29:3000/download/${data.name}`
     } else {
       status.innerHTML = data.status;
       message.innerHTML = data.message;
