@@ -42,7 +42,7 @@
     console.log(data)
     if (data.status === 'Ready') {
       status.innerHTML = 'Your file is ready to download!'
-      message.innerHTML = `<a href="http://192.168.1.29:3000/download/${data.name}">If the download has not started, click here</a>`
+      message.innerHTML = `If the download has not started: <a href="http://192.168.1.29:3000/download/${data.name}">click here</a>`
       document.getElementById('for-download').src = `http://192.168.1.29:3000/download/${data.name}`
     } else {
       status.innerHTML = data.status;

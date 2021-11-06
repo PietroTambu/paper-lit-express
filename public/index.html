@@ -30,20 +30,5 @@
 
   </form>
 </div>
-
-<script>
-  const inputMail = document.getElementById('email');
-
-  inputMail.disabled = true
-
-  function sendEmail (cb) {
-    if (!cb.checked) {
-      inputMail.disabled = true
-      inputMail.value = ''
-    } else {
-      inputMail.disabled = false
-    }
-  }
-</script>
 </body>
 </html>
