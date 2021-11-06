@@ -4,20 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="./stylesheets/style.css">
     <title>PaperLit to PDF</title>
   </head>
 <body>
-<h1>PaperLit to PDF</h1>
+<div class="container">
+  <h1>PaperLit to PDF</h1>
+  <hr>
+  <h2>Download Page</h2>
+  <h4>Your File will be downloaded once ready...</h4>
 
-<h2>Download Page</h2>
+  <div>
+    <p><strong>Status: </strong><span id="status">Ready</span></p>
 
-<p>Your File will be downloaded once ready...</p>
+    <p><strong>Message: </strong><span id="message">Ready</span></p>
+  </div>
 
-<p id="status"></p>
+  <iframe id="for-download" style=" display: none;"></iframe>
+  <hr>
+</div>
 
-<p id="message"></p>
-<iframe id="for-download" style=" display: none;"></iframe>
 <script>
   const status = document.getElementById('status');
   const message = document.getElementById('message');
@@ -36,7 +42,7 @@
     console.log(data)
     if (data.status === 'Ready') {
       status.innerHTML = 'Your file is ready to download!'
-      message.innerHTML = `<a href="http://192.168.1.29:3000/download/${data.name}">Click here to download</a>`
+      message.innerHTML = `<a href="http://192.168.1.29:3000/download/${data.name}">If the download has not started, click here</a>`
       document.getElementById('for-download').src = `http://192.168.1.29:3000/download/${data.name}`
     } else {
       status.innerHTML = data.status;

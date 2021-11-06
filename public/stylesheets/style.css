@@ -1,8 +1,42 @@
 body {
   padding: 50px;
+  text-align: center;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.container {
+  max-width: 75%;
+  min-width: 400px;
+  margin: 0 auto;
+  border: 2px solid #6c6c6c;
+  border-radius: 25px;
+  box-shadow: 0 0 10px #3d3d3d;
+  padding: 30px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
