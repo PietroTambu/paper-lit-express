@@ -21,7 +21,7 @@
   const status = document.getElementById('status');
   const message = document.getElementById('message');
   async function check() {
-    return fetch('http://localhost/info')
+    return fetch('http://192.168.1.29:3000/info')
             .then(async (response) => {
               return response.json();
             })
@@ -32,9 +32,10 @@
 
   async function writeToUser () {
     let data = await check()
+    console.log(data)
     if (data.status === 'Ready') {
       status.innerHTML = 'Your file is ready to download!'
-      message.innerHTML = `<a href="http://localhost:3000/${data.name}">Click here to download</a>`
+      message.innerHTML = `<a href="http://192.168.1.29:3000/download/${data.name}">Click here to download</a>`
     } else {
       status.innerHTML = data.status;
       message.innerHTML = data.message;
